@@ -1,0 +1,52 @@
+{% load static %}
+
+<html>
+  <body>
+    <h2>List of users using the app</h2>
+    <br />
+    <a href="/admin_user_create"> Create new user </a>
+    <br />
+    <a href="/admin_index"> Back to Main Page </a>
+    <div class="content-table">
+    <table border="1">
+      <thead>
+        <th>Full Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Type</th>
+        <th>Edit User</th>
+        <th>Delete User</th>
+      </thead>
+      {% for user in list_of_users %}
+      <tr>
+        <td>{{ user.0 }}</td>
+        <td>{{ user.1 }}</td>
+        <td>{{ user.2 }}</td>
+        <td>{{ user.3 }}</td>
+        <td>{{ user.5 }}</td>
+        <td>
+          <a
+            class="button"
+            href="admin_user_edit/{{ user.2 }}"
+            class="text-decoration-none"
+          >
+            Edit
+          </a>
+        </td>
+        <td>
+          <a
+            class="button"
+            href="admin_user_delete/{{ user.0 }}"
+            class="text-decoration-none"
+          >
+            Delete
+          </a>
+        </td>
+      </tr>
+
+      {% endfor %}
+    </table>
+    </div>
+  </body>
+</html>

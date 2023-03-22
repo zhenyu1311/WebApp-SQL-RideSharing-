@@ -1,0 +1,39 @@
+{% load static %}
+
+<html>
+  <body>
+    <div class="content-table">
+      <h2>List of reports made by users</h2>
+      <br />
+      <a href="/admin_index"> Back to Main Page </a>
+      <table border="1">
+        <thead>
+          <th>Submitter</th>
+          <th>Timestamp</th>
+          <th>Reported User</th>
+          <th>Comment</th>
+          <th>Severity</th>
+          <th>Delete Report</th>
+        </thead>
+        {% for report in list_of_reports %}
+        <tr>
+          <td>{{ report.0 }}</td>
+          <td>{{ report.1 }}</td>
+          <td>{{ report.2 }}</td>
+          <td>{{ report.3 }}</td>
+          <td>{{ report.4 }}</td>
+          <td>
+            <a
+              class="button"
+              href="admin_report_delete/{{ report.0 }}/{{ report.1 }}"
+              class="text-decoration-none"
+            >
+              Delete
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

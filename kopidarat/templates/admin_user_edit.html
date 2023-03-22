@@ -1,0 +1,68 @@
+{% load static %}
+
+<html>
+  <head>
+    <title>Update User</title>
+  </head>
+<div class="container">
+<div class="form-wrap">
+  <body>
+    <h2>Update User</h2>
+    <a href="/admin_user">Back to the list of users</a>
+
+    <form method="POST">
+      {% csrf_token %}
+      Full Name
+      <div class="form-group">
+        <input
+          class="form-control"
+          autofocus
+          type="text"
+          name="full_name"
+          value="{{obj.0}}"
+        />
+      </div>
+      Username
+      <div class="form-group">
+        
+        <input
+          class="form-control"
+          autofocus
+          type="text"
+          name="username"
+          value="{{obj.1}}"
+        />
+      </div>
+      Phone Number
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          name="phone_number"
+          value="{{obj.3}}"
+        />
+      </div>
+      Password
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          name="password"
+          value="{{obj.4}}"
+        />
+      </div>
+      Type
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          name="type"
+          value="{{obj.5}}"
+        />
+      </div>
+      <input class="btn btn-primary" type="submit" value="Update User" />
+    </form>
+  </body>
+</div>
+</div>
+</html>

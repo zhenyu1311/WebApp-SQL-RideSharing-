@@ -1,0 +1,71 @@
+{% load static %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap');
+  body {
+    color: black;
+    text-align: center;
+    background-color: #0EDEBC;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: 'Sora';
+    font-size: 70px;
+    margin: 50px;
+  }
+
+  h2 {
+    font-family: 'futura';
+    color: black;
+  }
+
+  a {
+    margin-bottom: 10px;
+  }
+
+  option {
+    width: 100%;
+  }
+</style>
+<html>
+  <head>
+    <title>{{activity_name}}</title>
+  </head>
+  <body>
+    <h2>People joining this activity</h2>
+    <br /><br />
+    <div class="content-table">
+    <table>
+        <thead>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          
+         
+        </thead>
+        <tbody>
+        {% for passenger in passenger %}
+        <tr>
+          <td>{{ passenger.0 }}</td>
+          <td>{{ passenger.1 }}</td>
+          <td>{{ passenger.2 }}</td>
+          <td>{{ passenger.3 }}</td>
+         
+
+        </tr>
+        {% endfor %}
+      </tbody>
+      </table>
+    </div>
+    <br />
+    <br />
+    <div class="back-to-your-activities">
+      <a href="/user_activity"> Back to Your Activities</a>
+    </div>
+  </body>
+</html>

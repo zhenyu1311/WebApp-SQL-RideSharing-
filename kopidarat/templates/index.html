@@ -1,0 +1,100 @@
+{% load static %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap');
+  body {
+    color: black;
+    text-align: center;
+    background-color: #0EDEBC;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: 'Sora';
+    font-size: 70px;
+    margin: 50px;
+  }
+
+  h2 {
+    font-family: 'futura';
+    color: black;
+  }
+
+  a {
+    margin-bottom: 10px;
+  }
+
+  option {
+    width: 100%;
+  }
+</style>
+
+<html>
+  <head>
+    <title> Welcome to [AppName]! </title>
+  </head>
+  <body>
+    {% if message %}
+    <div id="overlay"></div>
+    <div class="popup">
+      <div class="popupcontent">{{message}}</div>
+      <a
+        class="button"
+        href="{% url 'index' %}"
+        class="text-decoration-none"
+      >Back To Main Page</a>
+    </div>
+    {% endif %}
+
+    <h1>Hello {{full_name}}!</h1>  
+
+    <br/><br>
+    <a href="{% url 'create_activity' %}"> Start invite </a>
+    <br/><br>
+    <a href="{% url 'report' %}"> New Report </a>
+    <br/><br>
+    <a href="{% url 'user_activity' %}"> Current and history rides </a>
+    <br/><br>
+    <a href="{% url 'become_admin' %}"> Become an admin </a>
+    <br/><br>
+    <a href="{% url 'logout' %}"> Logout </a>
+    <br/><br>
+    
+
+
+
+    <h2> All Rides </h2>
+
+
+
+    
+    <table border=1>
+      <thead>
+          <th> Ride id </th>
+          <th> Start Date Time </th>
+          <th> Driver </th>
+          <th> Start Point </th>
+          <th> Destination </th>
+          <th> Joined </th>
+          <th> Capacity </th>
+          <th> Price </th>
+          <th> Join </th>
+      </thead>
+      {% for activities in activities %}
+      <tr>
+        <td> {{ activities.0 }}</td>
+        <td> {{ activities.3 }}</td>
+        <td> {{ activities.1 }}</td>
+        <td> {{ activities.2 }}</td>
+        <td> {{ activities.4 }}</td>
+        <td> {{ activities.5 }}</td>
+        <td> {{ activities.6 }}</td>
+        <td> {{ activities.7 }}</td>
+        <td> <a class='button' href="{% url 'join' activities.0 %}" class="text-decoration-none">Join</a> </td>
+      </tr>
+      {% endfor %}
+  </body>
+</html>
